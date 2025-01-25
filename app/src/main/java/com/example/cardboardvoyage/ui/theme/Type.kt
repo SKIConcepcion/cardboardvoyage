@@ -8,12 +8,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.cardboardvoyage.R
 
-val cuteDino = FontFamily(
-    Font(R.font.cute_dino)
-)
-
-val coopersTown = FontFamily(
-    Font(R.font.coopers_town)
+val papercuts = FontFamily(
+    Font(R.font.papercuts)
 )
 
 // Set of Material typography styles to start with

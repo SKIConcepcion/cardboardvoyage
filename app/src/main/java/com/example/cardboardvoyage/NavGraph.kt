@@ -27,8 +27,6 @@ fun NavGraph() {
             StoryScreen(navController, args)
         }
 
-
-
     }
 }
 
@@ -37,5 +35,5 @@ object HomeScreen
 
 @Serializable
 data class StoryScreen (
-    val id: Int?
+    val story: Int?
 )
