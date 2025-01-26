@@ -42,19 +42,17 @@ import kotlinx.coroutines.delay
 @Composable
 fun StoryScreen(navController: NavHostController, args: StoryScreen) {
 
-    // Map of story IDs to texts
     val storyTexts = mapOf(
         1 to "Once upon a time in the Cardboard Land, there was a kingdom — the Cardboard Kingdom!",
         2 to "It is the home of countless Cardboard Citizens and Cardboard Creatures.",
         3 to "But right now, they are in despair as an invisible threat looms over the outskirts of the land, slowly marching toward the kingdom's demise!"
     )
 
-    // Get the text for the given story ID, or provide a default message
     val textToDisplay = storyTexts[args.story] ?: "Welcome to the Cardboard Voyage!"
 
     Box(
         modifier = Modifier.fillMaxSize(),
-        contentAlignment = Alignment.Center // Centers the content of the Box both vertically and horizontally
+        contentAlignment = Alignment.Center
     ) {
         AsyncImage(
             model = ImageRequest.Builder(LocalContext.current).data(R.drawable.background).build(),
@@ -65,7 +63,7 @@ fun StoryScreen(navController: NavHostController, args: StoryScreen) {
 
         Column(
             horizontalAlignment = Alignment.CenterHorizontally,
-            verticalArrangement = Arrangement.Center // Centers the content inside the Column
+            verticalArrangement = Arrangement.Center
         ) {
             StoryScreenImage(args.story)
 
@@ -91,8 +89,7 @@ fun ColumnScope.StoryScreenImage(image: Int?) {
         3 to R.drawable.iridescence,
     )
 
-    // Get the text for the given story ID, or provide a default message
-    val imageToDisplay = storyImage[image] ?: "Welcome to the Cardboard Voyage!"
+    val imageToDisplay = storyImage[image]
 
     val infiniteTransition = rememberInfiniteTransition(label = "infinite transition")
 
@@ -127,7 +124,7 @@ fun ColumnScope.TypewriterText(texts: List<String>) {
                 delay(100)
             }
         }
-        isComplete = true // Mark animation as complete
+        isComplete = true
     }
 
     Text(
