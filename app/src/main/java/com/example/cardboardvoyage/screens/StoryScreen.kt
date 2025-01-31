@@ -45,7 +45,16 @@ fun StoryScreen(navController: NavHostController, args: StoryScreen) {
     val storyTexts = mapOf(
         1 to "Once upon a time in the Cardboard Land, there was a kingdom — the Cardboard Kingdom!",
         2 to "It is the home of countless Cardboard Citizens and Cardboard Creatures.",
-        3 to "But right now, they are in despair as an invisible threat looms over the outskirts of the land, slowly marching toward the kingdom's demise!"
+        3 to "But right now, they are in despair as an invisible threat looms over the outskirts of the land, slowly marching toward the kingdom's demise!",
+        4 to "Fortunately, the Cardboard guards managed to catch one of the creatures...",
+        5 to "Here's one inside of a cage — it's invisible, but it is definitely somewhere there inside.",
+        6 to "The kingdom believes that the only way to defeat these invisible threats is through a special flower — The Iridescence.",
+        7 to "Its luminous color is believed to be the key to making the threats visible, so the kingdom can finally fight back.",
+        8 to "Legend says that it is found in a mystical realm where the Princess is being held captive.",
+        9 to "And this is where you arrive at the scene — your goal is to journey across the land and retrieve the flower...",
+        10 to "And oh, you can also save the princess along the way, but it's optional.",
+        11 to "But first, your skill has to be put to the test...",
+        12 to "Against this dummy."
     )
 
     val textToDisplay = storyTexts[args.story] ?: "Welcome to the Cardboard Voyage!"
@@ -87,6 +96,15 @@ fun ColumnScope.StoryScreenImage(image: Int?) {
         1 to R.drawable.kingdom,
         2 to R.drawable.kingdom,
         3 to R.drawable.iridescence,
+        4 to R.drawable.cage,
+        5 to R.drawable.cage,
+        6 to R.drawable.iridescence,
+        7 to R.drawable.iridescence,
+        8 to R.drawable.iridescence,
+        9 to R.drawable.iridescence,
+        10 to R.drawable.iridescence,
+        11 to R.drawable.iridescence,
+        12 to R.drawable.iridescence
     )
 
     val imageToDisplay = storyImage[image]
@@ -121,7 +139,7 @@ fun ColumnScope.TypewriterText(texts: List<String>) {
         for (index in texts.indices) {
             texts[index].forEachIndexed { charIndex, _ ->
                 textToDisplay = texts[index].substring(0, charIndex + 1)
-                delay(100)
+                delay(70)
             }
         }
         isComplete = true

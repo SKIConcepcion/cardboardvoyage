@@ -6,6 +6,7 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.toRoute
+import com.example.cardboardvoyage.screens.BattleScreen
 import com.example.cardboardvoyage.screens.HomeScreen
 import com.example.cardboardvoyage.screens.StoryScreen
 import kotlinx.serialization.Serializable
@@ -16,7 +17,7 @@ fun NavGraph() {
 
     NavHost(
         navController = navController,
-        startDestination = HomeScreen
+        startDestination = BattleScreen
     ) {
         composable<HomeScreen> {
             HomeScreen(navController)
@@ -25,6 +26,10 @@ fun NavGraph() {
         composable<StoryScreen> { backStackEntry ->
             val args = backStackEntry.toRoute<StoryScreen>()
             StoryScreen(navController, args)
+        }
+
+        composable<BattleScreen> {
+            BattleScreen(navController)
         }
 
     }
@@ -37,3 +42,6 @@ object HomeScreen
 data class StoryScreen (
     val story: Int?
 )
+
+@Serializable
+object BattleScreen
